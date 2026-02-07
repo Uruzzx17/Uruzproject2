@@ -13,7 +13,7 @@ int more;
 
 // เก็บออเดอร์โดยใช้ array
 string orderList[50];
-int orderPrice[50];
+int orderPrice[50]; 
 int orderCount = 0;
 int totalPrice = 0;
 
