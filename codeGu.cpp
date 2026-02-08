@@ -120,7 +120,7 @@ void customer() {
     cout << "3. Wagyu A5 (990)" << endl;
     cout << "4. Salmon Sashimi (150)" << endl;
     cout << "5. Tom Yum Kung (99)" << endl;
-    cout << " : ";
+    cout << ": ";
     cin >> menu;
     
     if(menu == 0) return;
