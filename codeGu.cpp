@@ -58,7 +58,7 @@ void employ() {
         for (int i = 0; i < orderCount; i++) {
             cout << i + 1 << ". " << List[i] << "*" << amount << " - " << orderPrice[i] << " Baht" << endl;
         }
-        cout << "Total price : " << totalPrice * amount<< " Baht" << endl;
+        cout << "Total price : " << totalPrice << " Baht" << endl;
     }
 }
 
@@ -123,6 +123,12 @@ void customer() {
         cout << "5. Tom Yum Kung (99)" << endl;
         cout << ": "; cin >> menu;
         menuu();
+        if (menu == 0) return;
+
+        if (menu == 9) {
+            selectTable();        // เลือกโต๊ะใหม่
+            continue;            // กลับไปที่ customer() ใหม่;
+        }
         cout << "amount : "; cin >> amount;
 
         if (menu >= 1 && menu <= 5) {
@@ -227,6 +233,7 @@ int main() {
             break;
         }
         else if (Num == 1) {
+            table = 0; // reset table when new customer
             customer();
         }
         else if (Num == 2) {
