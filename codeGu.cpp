@@ -12,6 +12,7 @@ int price[6];
 int menu;
 int more;
 int amount;
+int check;
 int Amount[50]; // เก็บจำนวนของแต่ละรายการที่สั่ง
 
 // เก็บออเดอร์โดยใช้ array
@@ -54,7 +55,12 @@ void func() {
 
 void employ() {
     cout << "\n-----------------EMPLOYEE-----------------" << endl;
-    cout << "Last Order Summary" << endl;
+    for (int i = 1; i <= 5; i++) {
+    cout << "infomation Table : "<< i << endl;
+    }
+    cout << "Select : "; cin >> check;
+
+   /*/ cout << "Last Order Summary" << endl;
     if (table == 0) cout << "Table : " << "free" << endl;
     else cout << "Table : " << table << endl;
 
@@ -67,6 +73,8 @@ void employ() {
         }
         cout << "Total price : " << totalPrice << " Baht" << endl;
     }
+} */
+
 }
 
 void menuu() {
@@ -77,7 +85,7 @@ void menuu() {
     else if (menu == 1) {
         cout << "size : 1.normal 45 / 2.extra 55 " << endl;
         func();
-        cout << "select size : "; cin >> size;
+        cout << "Select size : "; cin >> size;
         food = "Khao man Gai";
         //price[menu] = (size == 1 ? 45 : 55);
         if (size == 1) price[menu] = 45;
@@ -86,7 +94,7 @@ void menuu() {
     else if (menu == 2) {
         cout << "size : 1.normal 45 / 2.extra 55 " << endl;
         func();
-        cout << "select size : "; cin >> size;
+        cout << "Select size : "; cin >> size;
         food = "Khao ka Moo";
         //price[menu] = (size == 1 ? 45 : 55);
         if (size == 1) price[menu] = 45;
@@ -108,7 +116,7 @@ void selectTable() {
      cout << "----------------------------------------" << endl;
     cout << "➤ 0 : back to home " << endl;
     cout << "----------------------------------------" << endl;
-    cout << ": ";
+    cout << "Select Table : ";
     cin >> table;
     if (table == 0) {
         return;
@@ -130,7 +138,7 @@ void customer() {
         cout << "4. Salmon Sashimi (150)" << endl;
         cout << "5. Tom Yum Kung (99)" << endl;
         func();
-        cout << ": "; cin >> menu;
+        cout << "Select Menu : "; cin >> menu;
         menuu();
         if (menu == 0) return;
 
@@ -147,7 +155,9 @@ void customer() {
             Amount[orderCount] = amount;   // บันทึกจำนวนของรายการนี้
 
             totalPrice += (price[menu] * Amount[orderCount]); // คำนวณราคารวมโดยคูณกับจำนวน ที่สั่ง
-            cout << ">> Added : " << food << " - " << price[menu] << " Baht" << endl;
+            cout << " " << endl;
+            cout << ">> Added : " << food << " - " << price[menu] << " Baht" << " <<"<< endl;
+            cout << " " << endl;
             orderCount++;
         }
         else {
@@ -168,9 +178,9 @@ void customer() {
 
 int moree() {
     while (true) {
-        cout << "More order? 1.yes / 2.no : ";
+        cout << "More order? 1.yes / 2.no  "<< endl;
         func();
-        cin >> more;
+        cout << ": " ; cin >> more;
 
         if (more == 1) {
             return 1; // กลับไป main → main เรียก customer() ใหม่เอง
@@ -179,8 +189,15 @@ int moree() {
             showBill();
             return 0;
         }
+        else if (more == 0) {
+            return 0; // กลับไป main
+        }
+        else if(more == 9) {
+            selectTable();        // เลือกโต๊ะใหม่
+            return 1;            // กลับไปที่ customer() ใหม่;
+        }
         else {
-            cout << "Invalid choice!" << endl;
+            cout << "Invalid!! please choose again" << endl;
         }
     }
 }
@@ -254,9 +271,9 @@ int main() {
         if (Num == 0) {
             cout << endl;
             cout << endl;
-            cout << "++++++++===================+++++++++" << endl;
-            cout << "|          Exiting program         |" << endl;
-            cout << "++++++++===================+++++++++" << endl;
+            cout << "++++++++=======================+++++++++" << endl;
+            cout << "|            Exiting program           |" << endl;
+            cout << "++++++++=======================+++++++++" << endl;
             break;
         }
         else if (Num == 1) {
